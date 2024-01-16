@@ -62,11 +62,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let mediaType = info[UIImagePickerController.InfoKey.mediaType] as! NSString
+        let mediaType = info[UIImagePickerController.InfoKey.mediaType] as! NSString //미디어 종류 확인
         
 //        if mediaType.isEqual(to: kUTTypeImage as NSString as String) {
-        if mediaType.isEqual(to: UTType.image.identifier as NSString as String) {
-            captureImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        if mediaType.isEqual(to: UTType.image.identifier as NSString as String) { //이미지일 경우
+            captureImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage //이미지를 captureImage안에 할당
             
             if flagImageSave {
                 UIImageWriteToSavedPhotosAlbum(captureImage, self, nil, nil)
@@ -74,13 +74,18 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             
             imgView.image = captureImage
 //        }else if mediaType.isEqual(to: kUTTypeMovie as NSString as String){
-//        }else if mediaType.isEqual(to: kUTTypeMovie as NSString as String){
-//            if flagImageSave {
-//                videoURL = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-//
-//                UISaveVideoAtPathToSavedPhotosAlbum(videoURL.relativePath, self, nil, nil)
-//            }
+        }else if mediaType.isEqual(to: UTType.movie.identifier as NSString as String){ //비디오일 경우
+            if flagImageSave {
+                videoURL = (info[UIImagePickerController.InfoKey.originalImage] as? URL)
+
+                UISaveVideoAtPathToSavedPhotosAlbum(videoURL.relativePath, self, nil, nil)
+            }
         }
+        self.dismiss(animated: true, completion: nil) //현재 뷰 컨트롤러 제거 -> 뷰에서 이미지 피커 화면을 제거하여 초기 뷰를 보여줌
+    }
+    
+    //사용자가 사진/비디오를 촬영하지 않고 취소할 경우 처음 뷰 상태로 돌아가야 함
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
     }
     
