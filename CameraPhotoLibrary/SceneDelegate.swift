@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  CameraPhotoLibrary
 //
-//  Created by 유라클 on 2024/01/16.
+//  Created by sodud on 2024/01/16.
 //
 
 import UIKit
