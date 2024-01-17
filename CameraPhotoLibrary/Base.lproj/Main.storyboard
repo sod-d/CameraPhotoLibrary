@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,10 +20,31 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LP0-UC-UtF">
                                 <rect key="frame" x="16" y="59" width="361" height="759"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ANb-qg-liZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="679"/>
-                                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
-                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i0m-s4-jPH">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="400"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pq5-Wr-KVF">
+                                                <rect key="frame" x="0.0" y="0.0" width="361" height="400"/>
+                                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="400" id="kuB-f1-qjn"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6dn-sB-rZ6">
+                                        <rect key="frame" x="0.0" y="400" width="361" height="279"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ASm-8R-EAF">
+                                                <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="279"/>
+                                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ANb-qg-liZ">
+                                                <rect key="frame" x="180.66666666666663" y="0.0" width="180.33333333333337" height="279"/>
+                                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fMW-wS-niN">
                                         <rect key="frame" x="0.0" y="679" width="361" height="40"/>
                                         <subviews>
@@ -54,7 +76,7 @@
                                         <rect key="frame" x="0.0" y="719" width="361" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhB-8A-acn">
-                                                <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120.33333333333333" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="HNs-cf-WVe"/>
                                                 </constraints>
@@ -64,8 +86,16 @@
                                                     <action selector="btnLoadImageFromLibrary:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rgw-6v-dRO"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xG6-Ml-c61">
+                                                <rect key="frame" x="120.33333333333334" y="0.0" width="120.33333333333334" height="40"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="초기화"/>
+                                                <connections>
+                                                    <action selector="btnReset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oDO-Oo-nEu"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3p-0U-RH1">
-                                                <rect key="frame" x="180.66666666666663" y="0.0" width="180.33333333333337" height="40"/>
+                                                <rect key="frame" x="240.66666666666671" y="0.0" width="120.33333333333334" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="CfE-XT-uOF"/>
                                                 </constraints>
@@ -78,6 +108,9 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="6dn-sB-rZ6" firstAttribute="top" secondItem="LP0-UC-UtF" secondAttribute="top" constant="400" id="ALl-nN-PSE"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -90,7 +123,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="firImgView" destination="Pq5-Wr-KVF" id="UbZ-IX-Fpx"/>
                         <outlet property="imgView" destination="ANb-qg-liZ" id="9wp-sY-fRm"/>
+                        <outlet property="secImgView" destination="ASm-8R-EAF" id="cqm-x6-eUh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
